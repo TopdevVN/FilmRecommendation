@@ -8,4 +8,4 @@ First, I will crawl the data from rottentomatoes.com, then do some preprocessing
 
 Next, I will build a machine learning model using content-based filtering.
 
-Finally, I use the streamlit library to deploy my ML model.
+Finally, I use the streamlit library to deploy my model with a basic website.
