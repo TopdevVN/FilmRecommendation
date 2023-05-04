@@ -33,7 +33,7 @@ def recommendations(title):
     sim_scores = sim_scores[1:16]
     movie_indices = [i[0] for i in sim_scores]
 
-    movies = film_data.iloc[movie_indices][['Title', 'Tomatometer count', 'Tomatometer score']]
+    movies = film_data.iloc[movie_indices][['Title', 'Genre', 'Tomatometer count', 'Tomatometer score']]
     qualified = movies[(movies['Tomatometer count'] >= m)]
     qualified['WR_score'] = qualified.apply(weighted_rating, axis=1)
     qualified = qualified.sort_values('WR_score', ascending=False).head(15)
@@ -61,9 +61,10 @@ if submit:
         for i in range(len(a)):
             with st.form('' + str(i) + ''):
                 st.markdown(f':green[**👀Title**:] {a.iloc[i, 0]}')
-                st.markdown(f':green[**👀Tomatometer count**:] {a.iloc[i, 1]}')
-                st.markdown(f':green[**👀Tomatometer score**:] 🍅 {a.iloc[i, 2]} 🍅')
-                st.markdown(f':green[**👀	WR_score**:] {a.iloc[i, 3]}')
+                st.markdown(f':green[**👀Genre**:] {a.iloc[i, 1]}')
+                st.markdown(f':green[**👀Tomatometer count**:] {a.iloc[i, 2]}')
+                st.markdown(f':green[**👀Tomatometer score**:] 🍅 {a.iloc[i, 3]} 🍅')
+                st.markdown(f':green[**👀	WR_score**:] {a.iloc[i, 4]}')
                 submit = st.form_submit_button(str(i + 1), disabled=True)
     except:
         st.error('There are no movies that are similar to ' + name, icon="❌")
