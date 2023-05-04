@@ -82,10 +82,10 @@ if submit:
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://img.freepik.com/premium-vector/movie-cinema-vector-pattern-doodle-hand-drawn-sketch-style-movie-seamless-pattern-cinema-elements-media-production-festival-theater-background-vector-illustration_253081-1063.jpg?w=2000");
-background-size: cover;
+background-image: url("https://previews.123rf.com/images/anatolir/anatolir1905/anatolir190503987/122504351-cinema-popcorn-box-pattern-seamless.jpg");
+background-size: 100%;
 background-position: center;
-background-repeat: no-repeat;
+background-repeat: repeat;
 background-attachment: local;
 }}
 [data-testid="stHeader"] {{
