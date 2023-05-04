@@ -4,12 +4,6 @@ import time
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-import os
-
-cwd = os.getcwd()
-print(cwd)
-
-
 data1 = pd.read_csv("../Resources/film_data.csv")
 data = data1.loc[0:5000]
 
