@@ -1,5 +1,6 @@
 # FilmRecommendation
-Basic Web App Movie Recommendation using the Streamlit Library
+Basic Web App Movie Recommendation using the Streamlit Library.
+
 Here is a short summary of this project:
 This project aims to create a basic web app to demo a movie recommendation system that can suggest similar movies for you.
 
