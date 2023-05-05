@@ -7,8 +7,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 data1 = pd.read_csv("film_data.csv")
 data = data1.loc[0:5000]
 
-m = data1['Tomatometer count'].quantile(0.90)
-C = data1['Tomatometer count'].mean()
+m = data['Tomatometer count'].quantile(0.90)  # 120
+C = data['Tomatometer count'].mean()
+
+t = data['Tomatometer score'].quantile(0.50)  # 72
 
 
 def weighted_rating(x, m=m, C=C):
@@ -34,7 +36,7 @@ def recommendations(title):
     movie_indices = [i[0] for i in sim_scores]
 
     movies = film_data.iloc[movie_indices][['Title', 'Genre', 'Tomatometer count', 'Tomatometer score']]
-    qualified = movies[(movies['Tomatometer count'] >= m)]
+    qualified = movies[(movies['Tomatometer count'] >= m) & (movies['Tomatometer score'] >= t)]
     qualified['WR_score'] = qualified.apply(weighted_rating, axis=1)
     qualified = qualified.sort_values('WR_score', ascending=False).head(15)
     return qualified
